@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material Vibe Coding — A Material Design 3 vibe coding studio for Windows</title>
+  <meta name="description" content="Build, convert, manage models, and code with vibes. A Material Design 3 desktop studio for Windows.">
+  <meta property="og:title" content="Material Vibe Coding">
+  <meta property="og:description" content="A Material Design 3 vibe coding studio for Windows.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ding-ding-projects.github.io/material-vibe-coding/">
+  <meta property="og:site_name" content="Material Vibe Coding">
+  <meta property="og:image" content="https://ding-ding-projects.github.io/material-vibe-coding/social-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Material Vibe Coding — a Material Design 3 vibe coding studio for Windows.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Material Vibe Coding">
+  <meta name="twitter:description" content="A Material Design 3 vibe coding studio for Windows.">
+  <meta name="twitter:image" content="https://ding-ding-projects.github.io/material-vibe-coding/social-preview.png">
+  <meta name="theme-color" content="#1c1b1f">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="titlebar">
+    <span id="titlebar-title">Material Vibe Coding</span>
+    <button id="theme-toggle" aria-label="Toggle theme">☀️</button>
+  </div>
+  <div id="shell">
+    <nav id="tabstrip" role="tablist" aria-label="Navigation" aria-orientation="vertical">
+      <button class="tab active" data-tab="home" role="tab" aria-selected="true">🏠 Home</button>
+      <button class="tab" data-tab="features" role="tab" aria-selected="false">✨ Features</button>
+      <button class="tab" data-tab="docs" role="tab" aria-selected="false">📖 Docs</button>
+      <button class="tab" data-tab="download" role="tab" aria-selected="false">📥 Download</button>
+      <button class="tab" data-tab="changelog" role="tab" aria-selected="false">📋 Changelog</button>
+      <button class="tab" data-tab="settings" role="tab" aria-selected="false">⚙️ Settings</button>
+    </nav>
+    <main id="content">
+      <section id="panel-home" class="panel active" role="tabpanel">
+        <div class="hero">
+          <h1>Material Vibe Coding</h1>
+          <p class="lede">A Material Design 3 vibe coding studio for Windows.</p>
+          <div class="cta-row">
+            <a href="#panel-download" class="cta primary" id="download-cta">📥 Download for Windows</a>
+            <a href="#panel-features" class="cta secondary">✨ Explore features</a>
+          </div>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <span class="feature-icon">📝</span>
+            <h3>Code editor</h3>
+            <p>Live line and character counts in a clean monospace surface.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🔄</span>
+            <h3>File converter</h3>
+            <p>Categorized local file conversion with guided adapters.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🧠</span>
+            <h3>Ollama models</h3>
+            <p>Local AI model management with hardware fit guidance.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🎨</span>
+            <h3>Material Design 3</h3>
+            <p>Dark and light themes, custom title bar, and expressive controls.</p>
+          </div>
+        </div>
+      </section>
+      <section id="panel-features" class="panel hidden" role="tabpanel"></section>
+      <section id="panel-docs" class="panel hidden" role="tabpanel"></section>
+      <section id="panel-download" class="panel hidden" role="tabpanel">
+        <h2>Download for Windows</h2>
+        <p>The installer is built with genuine Squirrel.Windows and is <strong>unsigned</strong> under our permanent no-signing policy. Your operating system may show an unknown-publisher or SmartScreen warning — this is expected.</p>
+        <div id="download-placeholder" class="empty-state">
+          <p>📥 No verified release is published yet.</p>
+          <p class="hint">The download button will appear here once a release has been verified.</p>
+        </div>
+      </section>
+      <section id="panel-changelog" class="panel hidden" role="tabpanel"></section>
+      <section id="panel-settings" class="panel hidden" role="tabpanel"></section>
+    </main>
+  </div>
+  <div id="command-palette-overlay" class="hidden">
+    <div id="command-palette" role="dialog" aria-label="Command palette">
+      <input type="text" id="palette-input" placeholder="Search commands…" autocomplete="off">
+      <ul id="palette-results"></ul>
+    </div>
+  </div>
+  <div id="notification-area" aria-live="polite"></div>
+  <div id="dimsum-surprise" class="hidden" role="alert"></div>
+  <script src="app.js"></script>
+</body>
+</html>
