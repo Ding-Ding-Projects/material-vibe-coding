@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material Vibe Coding</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="titlebar">
+    <span id="titlebar-title">Material Vibe Coding</span>
+    <div id="window-controls">
+      <button id="btn-min" aria-label="Minimize">&#x2013;</button>
+      <button id="btn-max" aria-label="Maximize">&#x25A1;</button>
+      <button id="btn-close" aria-label="Close">&#xD7;</button>
+    </div>
+  </div>
+  <div id="shell">
+    <nav id="tabstrip" role="tablist" aria-label="Navigation" aria-orientation="vertical">
+      <button class="tab active" data-tab="editor" role="tab" aria-selected="true">📝 Editor</button>
+      <button class="tab" data-tab="converter" role="tab" aria-selected="false">🔄 Converter</button>
+      <button class="tab" data-tab="ollama" role="tab" aria-selected="false">🧠 Models</button>
+      <button class="tab" data-tab="settings" role="tab" aria-selected="false">⚙️ Settings</button>
+      <button class="tab" data-tab="history" role="tab" aria-selected="false">📜 History</button>
+      <button class="tab" data-tab="changelog" role="tab" aria-selected="false">📋 Changelog</button>
+    </nav>
+    <main id="content">
+      <section id="panel-editor" class="panel active" role="tabpanel">
+        <textarea id="code-editor" spellcheck="false" placeholder="// Start coding here…"></textarea>
+        <div id="statusbar"><span id="line-count">Lines: 0</span><span id="char-count">Chars: 0</span></div>
+      </section>
+      <section id="panel-converter" class="panel hidden" role="tabpanel"></section>
+      <section id="panel-ollama" class="panel hidden" role="tabpanel"></section>
+      <section id="panel-settings" class="panel hidden" role="tabpanel"></section>
+      <section id="panel-history" class="panel hidden" role="tabpanel"></section>
+      <section id="panel-changelog" class="panel hidden" role="tabpanel"></section>
+    </main>
+  </div>
+  <div id="command-palette-overlay" class="hidden">
+    <div id="command-palette" role="dialog" aria-label="Command palette">
+      <input type="text" id="palette-input" placeholder="Search commands…" autocomplete="off">
+      <ul id="palette-results"></ul>
+    </div>
+  </div>
+  <div id="notification-area" aria-live="polite"></div>
+  <div id="dimsum-surprise" class="hidden" role="alert"></div>
+  <script src="app.js"></script>
+</body>
+</html>
