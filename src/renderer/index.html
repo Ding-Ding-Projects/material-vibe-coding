@@ -29,11 +29,90 @@
         <textarea id="code-editor" spellcheck="false" placeholder="// Start coding here…"></textarea>
         <div id="statusbar"><span id="line-count">Lines: 0</span><span id="char-count">Chars: 0</span></div>
       </section>
-      <section id="panel-converter" class="panel hidden" role="tabpanel"></section>
-      <section id="panel-ollama" class="panel hidden" role="tabpanel"></section>
-      <section id="panel-settings" class="panel hidden" role="tabpanel"></section>
-      <section id="panel-history" class="panel hidden" role="tabpanel"></section>
-      <section id="panel-changelog" class="panel hidden" role="tabpanel"></section>
+      <section id="panel-converter" class="panel hidden" role="tabpanel">
+        <div class="panel-header"><h2>File Converter</h2></div>
+        <div class="converter-body">
+          <div class="drop-zone" id="converter-drop">
+            <p>📂 Drop a file here or click to browse</p>
+            <input type="file" id="converter-file" class="sr-only">
+            <button class="btn outlined" onclick="document.getElementById('converter-file').click()">Browse…</button>
+          </div>
+          <div class="category-grid">
+            <div class="category-card" data-category="documents"><span>📄</span><label>Documents / PDF</label></div>
+            <div class="category-card" data-category="images"><span>🖼️</span><label>Images</label></div>
+            <div class="category-card" data-category="audio"><span>🎵</span><label>Audio</label></div>
+            <div class="category-card" data-category="video"><span>🎬</span><label>Video</label></div>
+            <div class="category-card" data-category="archives"><span>📦</span><label>Archives</label></div>
+            <div class="category-card" data-category="data"><span>📊</span><label>Data / Spreadsheets</label></div>
+            <div class="category-card" data-category="code"><span>💻</span><label>Code / Text</label></div>
+            <div class="category-card" data-category="binary"><span>🔢</span><label>Binary Encodings</label></div>
+          </div>
+          <div class="search-row">
+            <input type="text" id="converter-search" placeholder="Search formats…" aria-label="Search converter formats">
+            <button class="btn icon" title="Regex builder" aria-label="Open regex builder">.*</button>
+          </div>
+        </div>
+      </section>
+      <section id="panel-ollama" class="panel hidden" role="tabpanel">
+        <div class="panel-header"><h2>Local Ollama Models</h2></div>
+        <div class="ollama-body">
+          <div id="ollama-status" class="status-card">
+            <span id="ollama-status-text">Checking local Ollama service…</span>
+            <button class="btn outlined" id="ollama-refresh">Refresh</button>
+          </div>
+          <div class="search-row">
+            <input type="text" id="ollama-search" placeholder="Search models…" aria-label="Search Ollama models">
+            <button class="btn icon" title="Regex builder" aria-label="Open regex builder">.*</button>
+          </div>
+          <div id="model-list" class="model-list"></div>
+        </div>
+      </section>
+      <section id="panel-settings" class="panel hidden" role="tabpanel">
+        <div class="panel-header"><h2>Settings</h2></div>
+        <div class="settings-body">
+          <div class="settings-group">
+            <h3>Appearance</h3>
+            <label class="setting-row"><span>Theme</span><select id="setting-theme"><option value="dark">Dark</option><option value="light">Light</option></select></label>
+          </div>
+          <div class="settings-group">
+            <h3>Language</h3>
+            <label class="setting-row"><span>Language mode</span><select id="setting-language"><option value="en">English</option><option value="zh">Cantonese</option><option value="both">Bilingual</option></select></label>
+          </div>
+          <div class="settings-group">
+            <h3>Funny level</h3>
+            <label class="setting-row"><span>English funny level</span><input type="range" min="1" max="5" value="5" id="funny-en"></label>
+            <label class="setting-row"><span>Cantonese funny level</span><input type="range" min="1" max="5" value="5" id="funny-zh"></label>
+          </div>
+          <div class="settings-group">
+            <h3>Narrator</h3>
+            <label class="setting-row"><span>Spoken narrator</span><input type="checkbox" id="narrator-enabled"></label>
+          </div>
+          <div class="settings-group">
+            <h3>Personal vocabulary</h3>
+            <label class="setting-row"><span>Upload vocabulary JSON</span><input type="file" accept=".json" id="vocab-upload"></label>
+            <p class="hint">No file loaded — original shipped wording is active.</p>
+          </div>
+          <div class="settings-group">
+            <h3>School mode</h3>
+            <label class="setting-row"><span>School mode</span><input type="checkbox" id="school-mode"></label>
+          </div>
+        </div>
+      </section>
+      <section id="panel-history" class="panel hidden" role="tabpanel">
+        <div class="panel-header"><h2>History</h2></div>
+        <div class="history-body">
+          <p class="empty-note">No history entries yet. Changes will appear here as you work.</p>
+        </div>
+      </section>
+      <section id="panel-changelog" class="panel hidden" role="tabpanel">
+        <div class="panel-header"><h2>Changelog</h2></div>
+        <div class="changelog-body">
+          <div class="changelog-entry">
+            <strong>v1.0.0</strong> — Initial release
+            <p>First version of Material Vibe Coding with editor, converter catalog, Ollama surface, settings, and command palette.</p>
+          </div>
+        </div>
+      </section>
     </main>
   </div>
   <div id="command-palette-overlay" class="hidden">

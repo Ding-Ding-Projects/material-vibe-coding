@@ -68,8 +68,32 @@
           </div>
         </div>
       </section>
-      <section id="panel-features" class="panel hidden" role="tabpanel"></section>
-      <section id="panel-docs" class="panel hidden" role="tabpanel"></section>
+      <section id="panel-features" class="panel hidden" role="tabpanel">
+        <h2>All features</h2>
+        <ul class="feature-list">
+          <li>📝 Code editor with live line/char counts</li>
+          <li>🔄 Categorized local file converter (documents, images, audio, video, archives, data, code, binary)</li>
+          <li>🧠 Local Ollama model manager</li>
+          <li>🎨 Material Design 3 dark/light theme</li>
+          <li>🔍 Command palette (<kbd>Ctrl+Shift+F</kbd>)</li>
+          <li>🔔 Non-blocking notification centre</li>
+          <li>🥟 Dim sum surprise (10% at startup)</li>
+          <li>⚙️ Settings with language modes, funny levels, School mode, personal vocabulary upload</li>
+          <li>📜 Local Git-backed version history</li>
+          <li>📋 In-app changelog viewer</li>
+          <li>🗣️ Spoken TTS narrator (off by default)</li>
+          <li>🔒 Toy locks on tabs and appearance properties</li>
+        </ul>
+      </section>
+      <section id="panel-docs" class="panel hidden" role="tabpanel">
+        <h2>Documentation</h2>
+        <p>Detailed feature documentation ships inside the app's built-in offline documentation browser. The landing page provides a summary of key concepts below.</p>
+        <div class="doc-section"><h3>Getting started</h3><p>Download and run the installer. No additional dependencies are needed.</p></div>
+        <div class="doc-section"><h3>Editor</h3><p>The code editor tracks lines and characters live. Use <kbd>Ctrl+Shift+F</kbd> to open the command palette for quick navigation.</p></div>
+        <div class="doc-section"><h3>Converter</h3><p>Browse categorized format adapters, search by name or regex, and convert files locally without uploading them anywhere.</p></div>
+        <div class="doc-section"><h3>Ollama models</h3><p>If you have Ollama installed locally, the Models tab shows available models, their size, and hardware fit guidance.</p></div>
+        <div class="doc-section"><h3>Settings</h3><p>Customize theme, language mode, per-language funny levels, narrator voice, School mode, and your personal vocabulary JSON file.</p></div>
+      </section>
       <section id="panel-download" class="panel hidden" role="tabpanel">
         <h2>Download for Windows</h2>
         <p>The installer is built with genuine Squirrel.Windows and is <strong>unsigned</strong> under our permanent no-signing policy. Your operating system may show an unknown-publisher or SmartScreen warning — this is expected.</p>
@@ -78,8 +102,18 @@
           <p class="hint">The download button will appear here once a release has been verified.</p>
         </div>
       </section>
-      <section id="panel-changelog" class="panel hidden" role="tabpanel"></section>
-      <section id="panel-settings" class="panel hidden" role="tabpanel"></section>
+      <section id="panel-changelog" class="panel hidden" role="tabpanel">
+        <h2>Changelog</h2>
+        <div class="entry"><strong>v1.0.0</strong> — Initial release<p>First public version of Material Vibe Coding with code editor, file converter catalog, local Ollama manager, Material Design 3 UI, command palette, notifications, and dim sum surprise.</p></div>
+      </section>
+      <section id="panel-settings" class="panel hidden" role="tabpanel">
+        <h2>Site settings</h2>
+        <p>These preferences are stored locally in your browser only.</p>
+        <label class="setting"><span>Theme</span><select id="site-theme-select"><option value="dark">Dark</option><option value="light">Light</option></select></label>
+        <label class="setting"><span>Language</span><select><option>English</option><option>Cantonese</option><option>Bilingual</option></select></label>
+        <label class="setting"><span>English funny level</span><input type="range" min="1" max="5" value="5"></label>
+        <label class="setting"><span>Cantonese funny level</span><input type="range" min="1" max="5" value="5"></label>
+      </section>
     </main>
   </div>
   <div id="command-palette-overlay" class="hidden">

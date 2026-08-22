@@ -16,6 +16,37 @@ body { font-family:var(--font-family); background:var(--md-sys-color-background)
 .panel { display:none; height:100%; }
 .panel.active { display:flex; flex-direction:column; }
 .panel.hidden { display:none; }
+.panel-header { padding:16px 24px 8px; }
+.panel-header h2 { font-size:22px; font-weight:600; color:var(--md-sys-color-on-surface); }
+.sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0; }
+.btn { padding:10px 20px;border-radius:20px;border:none;font-size:14px;font-weight:500;cursor:pointer;font-family:var(--font-family);transition:background .15s,box-shadow .15s; }
+.btn.outlined { background:transparent;color:var(--md-sys-color-primary);border:1px solid var(--md-sys-color-primary); }
+.btn.icon { width:40px;height:40px;padding:0;display:flex;align-items:center;justify-content:center;border-radius:50%;background:var(--md-sys-color-surface-variant);color:var(--md-sys-color-on-surface-variant);border:none;font-size:13px;font-weight:bold; }
+.drop-zone { border:2px dashed var(--md-sys-color-outline);border-radius:16px;padding:32px;text-align:center;color:var(--md-sys-color-on-surface-variant);margin:16px 24px;cursor:pointer;transition:border-color .15s; }
+.drop-zone:hover { border-color:var(--md-sys-color-primary); }
+.category-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;padding:0 24px 16px; }
+.category-card { background:var(--md-sys-color-surface-variant);border-radius:12px;padding:16px;text-align:center;cursor:pointer;transition:background .15s;user-select:none; }
+.category-card:hover { background:var(--md-sys-color-secondary-container); }
+.category-card span { font-size:28px;display:block;margin-bottom:8px; }
+.category-card label { font-size:12px;color:var(--md-sys-color-on-surface-variant);cursor:pointer; }
+.search-row { display:flex;gap:8px;padding:8px 24px;align-items:center; }
+.search-row input[type="text"] { flex:1;padding:10px 14px;border-radius:24px;border:1px solid var(--md-sys-color-outline);background:var(--md-sys-color-surface);color:var(--md-sys-color-on-surface);font-size:14px;outline:none; }
+.search-row input[type="text"]:focus { border-color:var(--md-sys-color-primary); }
+.ollama-body,.settings-body,.history-body,.changelog-body { padding:0 24px 24px;overflow-y:auto;flex:1; }
+.status-card { display:flex;justify-content:space-between;align-items:center;background:var(--md-sys-color-surface-variant);border-radius:12px;padding:14px 18px;margin-bottom:12px;font-size:14px; }
+.model-list { margin-top:12px; }
+.model-item { background:var(--md-sys-color-surface-variant);border-radius:12px;padding:14px 18px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center; }
+.model-item strong { font-size:14px;color:var(--md-sys-color-on-surface); }
+.model-item span { font-size:12px;color:var(--md-sys-color-on-surface-variant); }
+.settings-group { margin-bottom:20px; }
+.settings-group h3 { font-size:14px;font-weight:600;color:var(--md-sys-color-primary);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px; }
+.setting-row { display:flex;justify-content:space-between;align-items:center;padding:10px 0;font-size:14px;color:var(--md-sys-color-on-surface);border-bottom:1px solid rgba(255,255,255,.05); }
+.setting-row select,.setting-row input[type="range"] { accent-color:var(--md-sys-color-primary); }
+.hint { font-size:12px;color:var(--md-sys-color-outline);margin-top:4px; }
+.empty-note { font-size:14px;color:var(--md-sys-color-on-surface-variant);padding:32px;text-align:center; }
+.changelog-entry { background:var(--md-sys-color-surface-variant);border-radius:12px;padding:16px;margin-bottom:12px; }
+.changelog-entry strong { font-size:15px;color:var(--md-sys-color-primary);display:block;margin-bottom:4px; }
+.changelog-entry p { font-size:13px;color:var(--md-sys-color-on-surface-variant);line-height:1.5;margin-top:6px; }
 #code-editor { flex:1; resize:none; border:none; outline:none; background:var(--md-sys-color-surface); color:var(--md-sys-color-on-surface); font-family:'Cascadia Code','Consolas',monospace; font-size:14px; line-height:1.6; padding:16px; tab-size:2; }
 #statusbar { display:flex; gap:24px; padding:6px 16px; background:var(--md-sys-color-surface-variant); font-size:12px; color:var(--md-sys-color-on-surface-variant); }
 #command-palette-overlay { position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,.5); z-index:100; display:flex; justify-content:center; padding-top:80px; }
