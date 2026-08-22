@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,35 +7,71 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Custom frameless title bar -->
   <div id="titlebar">
     <span id="titlebar-title">Material Vibe Coding</span>
     <div id="window-controls">
-      <button id="btn-min" aria-label="Minimize">&#x2013;</button>
-      <button id="btn-max" aria-label="Maximize">&#x25A1;</button>
-      <button id="btn-close" aria-label="Close">&#xD7;</button>
+      <button id="btn-min" aria-label="Minimize" title="Minimize">
+        <svg viewBox="0 0 10 10"><line x1="0" y1="5" x2="10" y2="5"/></svg>
+      </button>
+      <button id="btn-max" aria-label="Maximize" title="Maximize">
+        <svg viewBox="0 0 10 10"><rect x="0.5" y="0.5" width="9" height="9" rx="1"/></svg>
+      </button>
+      <button id="btn-close" aria-label="Close" title="Close">
+        <svg viewBox="0 0 10 10"><line x1="0" y1="0" x2="10" y2="10"/><line x1="10" y1="0" x2="0" y2="10"/></svg>
+      </button>
     </div>
   </div>
+
   <div id="shell">
+    <!-- Left-docked navigation rail -->
     <nav id="tabstrip" role="tablist" aria-label="Navigation" aria-orientation="vertical">
-      <button class="tab active" data-tab="editor" role="tab" aria-selected="true">📝 Editor</button>
-      <button class="tab" data-tab="converter" role="tab" aria-selected="false">🔄 Converter</button>
-      <button class="tab" data-tab="ollama" role="tab" aria-selected="false">🧠 Models</button>
-      <button class="tab" data-tab="settings" role="tab" aria-selected="false">⚙️ Settings</button>
-      <button class="tab" data-tab="history" role="tab" aria-selected="false">📜 History</button>
-      <button class="tab" data-tab="changelog" role="tab" aria-selected="false">📋 Changelog</button>
+      <button class="tab active" data-tab="editor" role="tab" aria-selected="true">
+        <span class="tab-icon" aria-hidden="true">📝</span>Editor
+      </button>
+      <button class="tab" data-tab="converter" role="tab" aria-selected="false">
+        <span class="tab-icon" aria-hidden="true">🔄</span>Converter
+      </button>
+      <button class="tab" data-tab="ollama" role="tab" aria-selected="false">
+        <span class="tab-icon" aria-hidden="true">🧠</span>Models
+      </button>
+      <button class="tab" data-tab="settings" role="tab" aria-selected="false">
+        <span class="tab-icon" aria-hidden="true">⚙️</span>Settings
+      </button>
+      <button class="tab" data-tab="history" role="tab" aria-selected="false">
+        <span class="tab-icon" aria-hidden="true">📜</span>History
+      </button>
+      <button class="tab" data-tab="changelog" role="tab" aria-selected="false">
+        <span class="tab-icon" aria-hidden="true">📋</span>Changelog
+      </button>
     </nav>
+
     <main id="content">
+      <!-- Editor -->
       <section id="panel-editor" class="panel active" role="tabpanel">
-        <textarea id="code-editor" spellcheck="false" placeholder="// Start coding here…"></textarea>
-        <div id="statusbar"><span id="line-count">Lines: 0</span><span id="char-count">Chars: 0</span></div>
+        <div class="editor-wrap">
+          <textarea id="code-editor" spellcheck="false" placeholder="// Start coding here…"></textarea>
+          <div id="statusbar">
+            <span class="lang-tag">plaintext</span>
+            <span class="sep">|</span>
+            <span id="line-count">Ln 1, Col 1</span>
+            <span class="sep">|</span>
+            <span id="char-count">0 chars</span>
+            <span style="flex:1"></span>
+            <span>UTF-8</span>
+          </div>
+        </div>
       </section>
+
+      <!-- Converter -->
       <section id="panel-converter" class="panel hidden" role="tabpanel">
-        <div class="panel-header"><h2>File Converter</h2></div>
+        <div class="panel-header"><h2>File Converter</h2><span class="subtitle">Convert files locally — nothing leaves your machine</span></div>
         <div class="converter-body">
           <div class="drop-zone" id="converter-drop">
-            <p>📂 Drop a file here or click to browse</p>
+            <p>📂 Drop a file here or browse to select one</p>
             <input type="file" id="converter-file" class="sr-only">
-            <button class="btn outlined" onclick="document.getElementById('converter-file').click()">Browse…</button>
+            <button class="btn outlined" onclick="document.getElementById('converter-file').click()">Browse files…</button>
+            <p class="hint">Supported: documents, images, audio, video, archives, data, code, and binary formats</p>
           </div>
           <div class="category-grid">
             <div class="category-card" data-category="documents"><span>📄</span><label>Documents / PDF</label></div>
@@ -49,12 +85,14 @@
           </div>
           <div class="search-row">
             <input type="text" id="converter-search" placeholder="Search formats…" aria-label="Search converter formats">
-            <button class="btn icon" title="Regex builder" aria-label="Open regex builder">.*</button>
+            <button class="btn icon-btn" title="Regex builder" aria-label="Open regex builder">.*</button>
           </div>
         </div>
       </section>
+
+      <!-- Ollama Models -->
       <section id="panel-ollama" class="panel hidden" role="tabpanel">
-        <div class="panel-header"><h2>Local Ollama Models</h2></div>
+        <div class="panel-header"><h2>Local Models</h2><span class="subtitle">Manage your local Ollama models</span></div>
         <div class="ollama-body">
           <div id="ollama-status" class="status-card">
             <span id="ollama-status-text">Checking local Ollama service…</span>
@@ -62,67 +100,99 @@
           </div>
           <div class="search-row">
             <input type="text" id="ollama-search" placeholder="Search models…" aria-label="Search Ollama models">
-            <button class="btn icon" title="Regex builder" aria-label="Open regex builder">.*</button>
+            <button class="btn icon-btn" title="Regex builder" aria-label="Open regex builder">.*</button>
           </div>
           <div id="model-list" class="model-list"></div>
         </div>
       </section>
+
+      <!-- Settings -->
       <section id="panel-settings" class="panel hidden" role="tabpanel">
-        <div class="panel-header"><h2>Settings</h2></div>
+        <div class="panel-header"><h2>Settings</h2><span class="subtitle">Customize your experience</span></div>
         <div class="settings-body">
           <div class="settings-group">
             <h3>Appearance</h3>
-            <label class="setting-row"><span>Theme</span><select id="setting-theme"><option value="dark">Dark</option><option value="light">Light</option></select></label>
+            <label class="setting-row"><span>Theme</span>
+              <select id="setting-theme"><option value="dark">🌙 Dark</option><option value="light">☀️ Light</option></select>
+            </label>
           </div>
           <div class="settings-group">
             <h3>Language</h3>
-            <label class="setting-row"><span>Language mode</span><select id="setting-language"><option value="en">English</option><option value="zh">Cantonese</option><option value="both">Bilingual</option></select></label>
+            <label class="setting-row"><span>Language mode</span>
+              <select id="setting-language"><option value="en">English</option><option value="zh">廣東話 Cantonese</option><option value="both">Bilingual</option></select>
+            </label>
           </div>
           <div class="settings-group">
-            <h3>Funny level</h3>
-            <label class="setting-row"><span>English funny level</span><input type="range" min="1" max="5" value="5" id="funny-en"></label>
-            <label class="setting-row"><span>Cantonese funny level</span><input type="range" min="1" max="5" value="5" id="funny-zh"></label>
+            <h3>Funny Level</h3>
+            <label class="setting-row"><span>English funny level <span class="value-label" id="funny-en-label">5</span></span><input type="range" min="1" max="5" value="5" id="funny-en"></label>
+            <label class="setting-row"><span>Cantonese funny level <span class="value-label" id="funny-zh-label">5</span></span><input type="range" min="1" max="5" value="5" id="funny-zh"></label>
+            <p class="hint">Level 1 is fully serious. Level 5 is maximum playfulness. Applies to every message including errors.</p>
           </div>
           <div class="settings-group">
             <h3>Narrator</h3>
             <label class="setting-row"><span>Spoken narrator</span><input type="checkbox" id="narrator-enabled"></label>
+            <p class="hint">Reads app events aloud. Off by default.</p>
           </div>
           <div class="settings-group">
-            <h3>Personal vocabulary</h3>
+            <h3>Personal Vocabulary</h3>
             <label class="setting-row"><span>Upload vocabulary JSON</span><input type="file" accept=".json" id="vocab-upload"></label>
-            <p class="hint">No file loaded — original shipped wording is active.</p>
+            <p class="hint">No file loaded — original shipped wording is active. Upload a local JSON file to apply your own word mappings.</p>
           </div>
           <div class="settings-group">
-            <h3>School mode</h3>
+            <h3>School Mode</h3>
             <label class="setting-row"><span>School mode</span><input type="checkbox" id="school-mode"></label>
+            <p class="hint">Hides playful content and forces English presentation.</p>
           </div>
         </div>
       </section>
+
+      <!-- History -->
       <section id="panel-history" class="panel hidden" role="tabpanel">
-        <div class="panel-header"><h2>History</h2></div>
+        <div class="panel-header"><h2>History</h2><span class="subtitle">Your local version history</span></div>
         <div class="history-body">
-          <p class="empty-note">No history entries yet. Changes will appear here as you work.</p>
+          <div class="empty-note"><strong>No history entries yet.</strong><br>Changes you make will appear here as local Git-backed snapshots you can browse, diff, and restore.</div>
         </div>
       </section>
+
+      <!-- Changelog -->
       <section id="panel-changelog" class="panel hidden" role="tabpanel">
-        <div class="panel-header"><h2>Changelog</h2></div>
+        <div class="panel-header"><h2>Changelog</h2><span class="subtitle">Every release, every change</span></div>
         <div class="changelog-body">
           <div class="changelog-entry">
-            <strong>v1.0.0</strong> — Initial release
-            <p>First version of Material Vibe Coding with editor, converter catalog, Ollama surface, settings, and command palette.</p>
+            <span class="version-tag">v1.0.0</span>
+            <h4>Initial release</h4>
+            <ul>
+              <li>Code editor with live line and character counts</li>
+              <li>Categorized local file converter with 8 format categories</li>
+              <li>Local Ollama model manager surface</li>
+              <li>Material Design 3 dark and light themes</li>
+              <li>Command palette (<kbd>Ctrl+Shift+F</kbd>)</li>
+              <li>Non-blocking notification centre</li>
+              <li>Dim sum surprise (10% at startup)</li>
+            </ul>
           </div>
         </div>
       </section>
     </main>
   </div>
+
+  <!-- Command palette overlay -->
   <div id="command-palette-overlay" class="hidden">
     <div id="command-palette" role="dialog" aria-label="Command palette">
-      <input type="text" id="palette-input" placeholder="Search commands…" autocomplete="off">
-      <ul id="palette-results"></ul>
+      <input type="text" id="palette-input" placeholder="Type a command…" autocomplete="off" aria-label="Command search">
+      <ul id="palette-results" role="listbox"></ul>
     </div>
   </div>
+
+  <!-- Notification area -->
   <div id="notification-area" aria-live="polite"></div>
-  <div id="dimsum-surprise" class="hidden" role="alert"></div>
+
+  <!-- Dim sum surprise -->
+  <div id="dimsum-surprise" class="hidden" role="alert" aria-live="polite">
+    <span class="dish-icon" aria-hidden="true">🥟</span>
+    <span id="dish-text"></span>
+  </div>
+
   <script src="app.js"></script>
 </body>
 </html>

@@ -18,112 +18,194 @@
   <meta name="twitter:title" content="Material Vibe Coding">
   <meta name="twitter:description" content="A Material Design 3 vibe coding studio for Windows.">
   <meta name="twitter:image" content="https://ding-ding-projects.github.io/material-vibe-coding/social-preview.png">
-  <meta name="theme-color" content="#1c1b1f">
+  <meta name="theme-color" content="#141218">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="titlebar">
-    <span id="titlebar-title">Material Vibe Coding</span>
-    <button id="theme-toggle" aria-label="Toggle theme">☀️</button>
-  </div>
+  <!-- Top bar -->
+  <header id="topbar">
+    <span id="topbar-title">Material Vibe Coding</span>
+    <div id="topbar-actions">
+      <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">☀️</button>
+      <a href="#download" class="btn filled small">Download</a>
+    </div>
+  </header>
+
+  <!-- Left navigation rail -->
   <div id="shell">
     <nav id="tabstrip" role="tablist" aria-label="Navigation" aria-orientation="vertical">
-      <button class="tab active" data-tab="home" role="tab" aria-selected="true">🏠 Home</button>
-      <button class="tab" data-tab="features" role="tab" aria-selected="false">✨ Features</button>
-      <button class="tab" data-tab="docs" role="tab" aria-selected="false">📖 Docs</button>
-      <button class="tab" data-tab="download" role="tab" aria-selected="false">📥 Download</button>
-      <button class="tab" data-tab="changelog" role="tab" aria-selected="false">📋 Changelog</button>
-      <button class="tab" data-tab="settings" role="tab" aria-selected="false">⚙️ Settings</button>
+      <button class="tab active" data-tab="home" role="tab" aria-selected="true"><span class="icon">🏠</span>Home</button>
+      <button class="tab" data-tab="features" role="tab" aria-selected="false"><span class="icon">✨</span>Features</button>
+      <button class="tab" data-tab="docs" role="tab" aria-selected="false"><span class="icon">📖</span>Docs</button>
+      <button class="tab" data-tab="download" role="tab" aria-selected="false"><span class="icon">📥</span>Download</button>
+      <button class="tab" data-tab="changelog" role="tab" aria-selected="false"><span class="icon">📋</span>Changelog</button>
+      <button class="tab" data-tab="settings" role="tab" aria-selected="false"><span class="icon">⚙️</span>Settings</button>
     </nav>
+
     <main id="content">
+      <!-- HOME -->
       <section id="panel-home" class="panel active" role="tabpanel">
         <div class="hero">
-          <h1>Material Vibe Coding</h1>
-          <p class="lede">A Material Design 3 vibe coding studio for Windows.</p>
+          <div class="hero-badge">🥟 Material Design 3 · Windows</div>
+          <h1>Code with<br><span class="gradient-text">vibes.</span></h1>
+          <p class="lede">A beautiful desktop studio that brings code editing, file conversion, and local AI model management into one expressive Material Design 3 experience for Windows.</p>
           <div class="cta-row">
-            <a href="#panel-download" class="cta primary" id="download-cta">📥 Download for Windows</a>
-            <a href="#panel-features" class="cta secondary">✨ Explore features</a>
+            <a href="#panel-download" class="cta primary">📥 Download for Windows</a>
+            <a href="#panel-features" class="cta secondary">✨ Explore features →</a>
           </div>
         </div>
-        <div class="feature-grid">
-          <div class="feature-card">
-            <span class="feature-icon">📝</span>
+
+        <div class="showcase-grid">
+          <div class="showcase-card large">
+            <div class="card-icon">📝</div>
             <h3>Code editor</h3>
-            <p>Live line and character counts in a clean monospace surface.</p>
+            <p>A clean monospace surface with live line and character tracking. No clutter, no distractions — just you and your code.</p>
+            <div class="mock-editor">
+              <div class="mock-line"><span class="kw">const</span> <span class="var">vibe</span> = <span class="str">'material'</span>;</div>
+              <div class="mock-line dim">// Start building something beautiful</div>
+            </div>
           </div>
-          <div class="feature-card">
-            <span class="feature-icon">🔄</span>
+          <div class="showcase-card">
+            <div class="card-icon">🔄</div>
             <h3>File converter</h3>
-            <p>Categorized local file conversion with guided adapters.</p>
+            <p>Categorized local conversion across 8 format groups. Your files never leave your machine.</p>
           </div>
-          <div class="feature-card">
-            <span class="feature-icon">🧠</span>
+          <div class="showcase-card">
+            <div class="card-icon">🧠</div>
             <h3>Ollama models</h3>
-            <p>Local AI model management with hardware fit guidance.</p>
+            <p>Browse and manage local AI models with hardware-fit guidance and honest status reporting.</p>
           </div>
-          <div class="feature-card">
-            <span class="feature-icon">🎨</span>
+          <div class="showcase-card">
+            <div class="card-icon">🎨</div>
             <h3>Material Design 3</h3>
-            <p>Dark and light themes, custom title bar, and expressive controls.</p>
+            <p>Dark and light themes with expressive shapes, real depth, and smooth motion built in from the ground up.</p>
+          </div>
+          <div class="showcase-card">
+            <div class="card-icon">🔍</div>
+            <h3>Command palette</h3>
+            <p>Press <kbd>Ctrl+Shift+F</kbd> to jump to any feature, setting, or destination instantly.</p>
           </div>
         </div>
       </section>
+
+      <!-- FEATURES -->
       <section id="panel-features" class="panel hidden" role="tabpanel">
-        <h2>All features</h2>
+        <h2>Every feature, nothing hidden</h2>
         <ul class="feature-list">
-          <li>📝 Code editor with live line/char counts</li>
-          <li>🔄 Categorized local file converter (documents, images, audio, video, archives, data, code, binary)</li>
-          <li>🧠 Local Ollama model manager</li>
-          <li>🎨 Material Design 3 dark/light theme</li>
-          <li>🔍 Command palette (<kbd>Ctrl+Shift+F</kbd>)</li>
-          <li>🔔 Non-blocking notification centre</li>
-          <li>🥟 Dim sum surprise (10% at startup)</li>
-          <li>⚙️ Settings with language modes, funny levels, School mode, personal vocabulary upload</li>
-          <li>📜 Local Git-backed version history</li>
-          <li>📋 In-app changelog viewer</li>
-          <li>🗣️ Spoken TTS narrator (off by default)</li>
-          <li>🔒 Toy locks on tabs and appearance properties</li>
+          <li><span class="f-icon">📝</span> Code editor with live line/char counts and cursor position</li>
+          <li><span class="f-icon">🔄</span> Categorized local file converter (documents, images, audio, video, archives, data, code, binary)</li>
+          <li><span class="f-icon">🧠</span> Local Ollama model manager with service detection</li>
+          <li><span class="f-icon">🎨</span> Material Design 3 dark/light theme with full token system</li>
+          <li><span class="f-icon">🔍</span> Command palette (<kbd>Ctrl+Shift+F</kbd>)</li>
+          <li><span class="f-icon">🔔</span> Non-blocking notification centre with error/success states</li>
+          <li><span class="f-icon">🥟</span> Dim sum surprise (10% chance at startup)</li>
+          <li><span class="f-icon">⚙️</span> Settings: language modes (EN / 廣東話 / bilingual), per-language funny levels, narrator, vocabulary upload, School mode</li>
+          <li><span class="f-icon">📜</span> Local Git-backed version history</li>
+          <li><span class="f-icon">📋</span> In-app changelog viewer with version tags</li>
         </ul>
       </section>
+
+      <!-- DOCS -->
       <section id="panel-docs" class="panel hidden" role="tabpanel">
         <h2>Documentation</h2>
-        <p>Detailed feature documentation ships inside the app's built-in offline documentation browser. The landing page provides a summary of key concepts below.</p>
-        <div class="doc-section"><h3>Getting started</h3><p>Download and run the installer. No additional dependencies are needed.</p></div>
-        <div class="doc-section"><h3>Editor</h3><p>The code editor tracks lines and characters live. Use <kbd>Ctrl+Shift+F</kbd> to open the command palette for quick navigation.</p></div>
-        <div class="doc-section"><h3>Converter</h3><p>Browse categorized format adapters, search by name or regex, and convert files locally without uploading them anywhere.</p></div>
-        <div class="doc-section"><h3>Ollama models</h3><p>If you have Ollama installed locally, the Models tab shows available models, their size, and hardware fit guidance.</p></div>
-        <div class="doc-section"><h3>Settings</h3><p>Customize theme, language mode, per-language funny levels, narrator voice, School mode, and your personal vocabulary JSON file.</p></div>
-      </section>
-      <section id="panel-download" class="panel hidden" role="tabpanel">
-        <h2>Download for Windows</h2>
-        <p>The installer is built with genuine Squirrel.Windows and is <strong>unsigned</strong> under our permanent no-signing policy. Your operating system may show an unknown-publisher or SmartScreen warning — this is expected.</p>
-        <div id="download-placeholder" class="empty-state">
-          <p>📥 No verified release is published yet.</p>
-          <p class="hint">The download button will appear here once a release has been verified.</p>
+        <p>Detailed feature documentation ships inside the app's built-in offline browser. Below are the key concepts.</p>
+        <div class="doc-section">
+          <h3>Getting started</h3>
+          <p>Download the installer from the <a href="#panel-download">Download tab</a>. No additional dependencies needed. The app is unsigned under our permanent no-signing policy, so your OS may show a SmartScreen warning.</p>
+        </div>
+        <div class="doc-section">
+          <h3>Editor</h3>
+          <p>The code editor tracks lines and characters live. Use <kbd>Ctrl+Shift+F</kbd> for the command palette. The status bar shows Ln/Col position, character count, encoding, and language tag.</p>
+        </div>
+        <div class="doc-section">
+          <h3>Converter</h3>
+          <p>Browse categorized adapters, search by name or regex, and convert files locally without uploading them anywhere. Drag-and-drop is supported alongside the browse button.</p>
+        </div>
+        <div class="doc-section">
+          <h3>Ollama models</h3>
+          <p>If Ollama runs locally on port 11434, the Models panel detects it automatically on first visit and shows your available models. If not, it reports honestly rather than showing fake data.</p>
+        </div>
+        <div class="doc-section">
+          <h3>Settings</h3>
+          <p>Customize theme, language mode (English, Cantonese, or bilingual), independent English and Cantonese funny-level sliders, narrator voice, personal vocabulary JSON upload, and School mode.</p>
         </div>
       </section>
+
+      <!-- DOWNLOAD -->
+      <section id="panel-download" class="panel hidden" role="tabpanel">
+        <div class="download-hero">
+          <h1>Get it now 🚀</h1>
+          <p>Genuine Squirrel.Windows installer for Windows x64. Built with Electron Forge.</p>
+          <a href="https://github.com/Ding-Ding-Projects/material-vibe-coding/releases/download/v1.0.0/material-vibe-coding-1.0.0.Setup.exe" class="btn filled big" download>
+            📥 Download Setup.exe
+          </a>
+          <p class="unsigned-note">⚠️ This installer is <strong>unsigned</strong> and may trigger an unknown-publisher or SmartScreen warning. This is expected under our permanent no-signing policy.</p>
+          <p class="sha-note">SHA256: <code>7fefd394…36b91</code></p>
+        </div>
+        <div class="release-info">
+          <div><strong>v1.0.0</strong> · Initial release · <a href="https://github.com/Ding-Ding-Projects/material-vibe-coding/releases/tag/v1.0.0" target="_blank" rel="noopener">View release notes →</a></div>
+          <div><strong>146 MB</strong> · Squirrel.Windows · Windows 10/11 x64</div>
+        </div>
+      </section>
+
+      <!-- CHANGELOG -->
       <section id="panel-changelog" class="panel hidden" role="tabpanel">
         <h2>Changelog</h2>
-        <div class="entry"><strong>v1.0.0</strong> — Initial release<p>First public version of Material Vibe Coding with code editor, file converter catalog, local Ollama manager, Material Design 3 UI, command palette, notifications, and dim sum surprise.</p></div>
+        <div class="entry">
+          <span class="version-tag">v1.0.0</span>
+          <strong>Initial release</strong>
+          <ul>
+            <li>Material Design 3 dark/light theme with custom frameless title bar</li>
+            <li>Code editor with live line/char/cursor stats</li>
+            <li>Categorized file converter (8 categories) with drag-and-drop</li>
+            <li>Local Ollama model detection and listing</li>
+            <li>Command palette (<kbd>Ctrl+Shift+F</kbd>)</li>
+            <li>Non-blocking notifications</li>
+            <li>Settings: language modes, funny levels, narrator, vocabulary, School mode</li>
+            <li>Dim sum surprise (10%)</li>
+          </ul>
+          <a href="https://github.com/Ding-Ding-Projects/material-vibe-coding/releases/tag/v1.0.0" target="_blank" rel="noopener">Full release notes →</a>
+        </div>
       </section>
+
+      <!-- SETTINGS -->
       <section id="panel-settings" class="panel hidden" role="tabpanel">
-        <h2>Site settings</h2>
-        <p>These preferences are stored locally in your browser only.</p>
-        <label class="setting"><span>Theme</span><select id="site-theme-select"><option value="dark">Dark</option><option value="light">Light</option></select></label>
-        <label class="setting"><span>Language</span><select><option>English</option><option>Cantonese</option><option>Bilingual</option></select></label>
-        <label class="setting"><span>English funny level</span><input type="range" min="1" max="5" value="5"></label>
-        <label class="setting"><span>Cantonese funny level</span><input type="range" min="1" max="5" value="5"></label>
+        <h2>Site preferences</h2>
+        <p>These preferences are stored locally in your browser only. Nothing leaves this device.</p>
+        <label class="setting"><span>Theme</span>
+          <select id="site-theme-select"><option value="dark">🌙 Dark</option><option value="light">☀️ Light</option></select>
+        </label>
+        <label class="setting"><span>Language</span>
+          <select><option>English</option><option>廣東話 Cantonese</option><option>Bilingual</option></select>
+        </label>
+        <label class="setting"><span>English funny level <em id="site-funny-en-label">5</em></span>
+          <input type="range" min="1" max="5" value="5" id="site-funny-en">
+        </label>
+        <label class="setting"><span>Cantonese funny level <em id="site-funny-zh-label">5</em></span>
+          <input type="range" min="1" max="5" value="5" id="site-funny-zh">
+        </label>
+        <label class="setting"><span>Show emojis in dialogs</span><input type="checkbox" checked></label>
       </section>
     </main>
   </div>
+
+  <!-- Command palette -->
   <div id="command-palette-overlay" class="hidden">
     <div id="command-palette" role="dialog" aria-label="Command palette">
-      <input type="text" id="palette-input" placeholder="Search commands…" autocomplete="off">
-      <ul id="palette-results"></ul>
+      <input type="text" id="palette-input" placeholder="Type a command…" autocomplete="off" aria-label="Command search">
+      <ul id="palette-results" role="listbox"></ul>
     </div>
   </div>
+
+  <!-- Notification area -->
   <div id="notification-area" aria-live="polite"></div>
-  <div id="dimsum-surprise" class="hidden" role="alert"></div>
+
+  <!-- Dim sum surprise -->
+  <div id="dimsum-surprise" class="hidden" role="alert" aria-live="polite">
+    <span class="dish-icon" aria-hidden="true">🥟</span>
+    <span id="dish-text"></span>
+  </div>
+
   <script src="app.js"></script>
 </body>
 </html>
